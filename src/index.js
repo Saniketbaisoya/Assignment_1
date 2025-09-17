@@ -1,6 +1,6 @@
 const express = require('express');
 const { ServerConfig, Connect } = require('./configuration');
-const router = require('./routers/user.registration');
+const router = require('./routers/user.router');
 
 const app = express();
 

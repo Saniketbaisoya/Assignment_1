@@ -8,4 +8,6 @@ const router = express.Router();
  * http://localhost:2000/api/register
  */
 router.post('/register',userValidationMiddleware.userValidation,userController.userRegister_Controller);
+
+router.get('/referrals/:userName',userController.getUserById_Controller);
 module.exports = router;

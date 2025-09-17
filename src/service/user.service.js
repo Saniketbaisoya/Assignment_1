@@ -9,6 +9,14 @@ async function userRegister(data) {
     const user = await userRepository.userCreate(payload);
     return user;
 }
+
+async function getUserById(data) {
+    console.log("inside service -> 1")
+    const user = await userRepository.getUserById({userName : data.userName});
+    console.log(user);
+    return user;
+}
 module.exports = {
-    userRegister
+    userRegister,
+    getUserById
 }

@@ -16,6 +16,20 @@ async function userRegister_Controller(req,res) {
     }
 }
 
+async function getUserById_Controller(req,res) {
+    try {
+        const userName = req.params.userName;
+        const response = await userService.getUserById(userName);
+        SuccessResponse.message = "SuccessFully fetch the user along with referral details...";
+        SuccessResponse.data = response;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.message = error.messaage;
+        ErrorResponse.error = error;
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(ErrorResponse);
+    }
+}
 module.exports = {
-    userRegister_Controller
+    userRegister_Controller,
+    getUserById_Controller
 }
